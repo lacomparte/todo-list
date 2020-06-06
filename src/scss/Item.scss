@@ -1,0 +1,57 @@
+@import 'utils';
+
+.item {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  
+  .tick {
+    margin-right: 1rem;
+  }
+
+  .text {
+    flex: 1;
+    word-break: break-all;
+    &.done {
+      text-decoration: line-through;
+    }
+  }
+
+  .edit {
+    margin-left: 0.5rem;
+    color: $oc-blue-7;
+    font-size: 0.8rem;
+    &:hover {
+      color: $oc-blue-5;
+      text-decoration: underline;
+    }
+  }
+  
+  .date {
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    width: 5.6rem;
+  }
+
+  .delete {
+    margin-left: 0.5rem;
+    color: $oc-red-7;
+    font-size: 0.8rem;
+    &:hover {
+      color: $oc-red-5;
+      text-decoration: underline;
+    }
+  }
+
+  &:nth-child(odd) {
+    background: $oc-gray-0;
+  }
+  &:hover {
+    background: $oc-gray-1;
+  }
+}
+
+.item + .item {
+  border-top: 1px solid $oc-gray-1;
+}
