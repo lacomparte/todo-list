@@ -3,7 +3,7 @@ import { get, set } from '../../redux/sagas/service/api';
 import * as ActionTypes from '../actions/ActionTypes';
 
 const getTodos = async (key) => await get(key);
-const setTodos = ({key, value}) => set(key, value);
+const setTodos = async ({key, value}) => await set(key, value);
 
 // search todo list
 function* fetchTodosSaga() {
@@ -63,8 +63,6 @@ function* deleteTodoSaga() {
 }
 function* removeTodo(action) {
   const { payload: { key, id }, } = action;
-  const { todo: { todos }, } = yield select();
-  const idx = todos.findIndex(todo => todo.id === id);
   yield put({
     type: ActionTypes.DELETE_TODO_REQUEST,
   });
@@ -72,7 +70,7 @@ function* removeTodo(action) {
     yield put({
       type: ActionTypes.DELETE_TODO_SUCCESS,
       payload: {
-        idx,
+        id,
       }
     });
     const { todo: { todos }, } = yield select();
@@ -94,8 +92,6 @@ function* toggleTodoSaga() {
 }
 function* toggleTodo(action) {
   const { payload: { key, id }, } = action;
-  const { todo: { todos }, } = yield select();
-  const idx = todos.findIndex(todo => todo.id === id);
   yield put({
     type: ActionTypes.TOGGLE_TODO_REQUEST,
   });
@@ -103,7 +99,7 @@ function* toggleTodo(action) {
     yield put({
       type: ActionTypes.TOGGLE_TODO_SUCCESS,
       payload: {
-        idx,
+        id,
       }
     });
     const { todo: { todos }, } = yield select();
@@ -147,6 +143,36 @@ function* dragTodo(action) {
   }
 }
 
+// edit todo
+function* editTodoSaga() {
+  yield takeLatest(ActionTypes.EDIT_TODO, editTodo);
+}
+function* editTodo(action) {
+  const { payload: { key, id, todo }, } = action;
+  yield put({
+    type: ActionTypes.EDIT_TODO_REQUEST,
+  });
+  try {
+    yield put({
+      type: ActionTypes.EDIT_TODO_SUCCESS,
+      payload: {
+        id,
+        todo,
+      },
+    });
+    const { todo: { todos }, } = yield select();
+    yield call(setTodos, {
+      key,
+      value: todos,
+    });
+  } catch (e) {
+    yield put({
+      type: ActionTypes.EDIT_TODO_FAILURE,
+      payload: e,
+    })
+  }
+}
+
 export function* todoSaga() {
   yield all([
     fork(fetchTodosSaga),
@@ -154,5 +180,6 @@ export function* todoSaga() {
     fork(deleteTodoSaga),
     fork(toggleTodoSaga),
     fork(dragTodoSaga),
+    fork(editTodoSaga),
   ]);
 }

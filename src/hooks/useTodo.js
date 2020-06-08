@@ -6,6 +6,7 @@ import {
   deleteTodo as removeTodo, 
   toggleTodo as changeTodo, 
   dragTodo as draggingTodo,
+  editTodo as updateTodo,
 } from '../redux/actions/todo';
 import { selectTodo } from '../redux/selectors/todo';
 import { getMaxVal } from '../utils';
@@ -34,8 +35,6 @@ const useTodo = () => {
         id: getMaxVal(todos) || 0,
         ...data,
         done: false,
-        chosen: false,
-        selected: false,
       },
     }));
     setTitle('');
@@ -43,26 +42,16 @@ const useTodo = () => {
     setDate('');
   };
 
-  const deleteTodo = (key, id) => {
-    dispatch(removeTodo({
-      key,
-      id,
-    }));
-  };
+  const deleteTodo = (key, id) => dispatch(removeTodo({ key, id, }));
 
-  const toggleTodo = (key, id) => {
-    dispatch(changeTodo({
-      key,
-      id,
-    }));
-  };
+  const toggleTodo = (key, id) => dispatch(changeTodo({ key, id, }));
 
-  const dragTodo = (key, todos) => {
-    dispatch(draggingTodo({
-      key,
-      todos,
+  const dragTodo = (key, todos) => dispatch(draggingTodo({ key, todos, }));
+
+  const editTodo = (key, id, todo) =>
+    dispatch(updateTodo({
+      key, id, todo
     }));
-  };
 
   return {
     todos,
@@ -71,6 +60,7 @@ const useTodo = () => {
     deleteTodo,
     toggleTodo,
     dragTodo,
+    editTodo, 
   };
 };
 

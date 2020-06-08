@@ -15,6 +15,9 @@ import {
   DRAG_TODO_REQUEST,
   DRAG_TODO_SUCCESS,
   DRAG_TODO_FAILURE,
+  EDIT_TODO_REQUEST,
+  EDIT_TODO_SUCCESS,
+  EDIT_TODO_FAILURE,
 } from '../actions/ActionTypes';
 
 const initialState = {
@@ -66,12 +69,11 @@ const requestDeleteTodo = state => ({
   statue: 'fetching',
 });
 const successDeleteTodo = (state, action) => {
-  const { idx } = action.payload;
+  const { id } = action.payload;
   return {
     ...state,
     todos: [
-      ...state.todos.slice(0, idx),
-      ...state.todos.slice(idx + 1, state.todos.length),
+      ...state.todos.filter(todo => todo.id !== id),
     ],
     status: 'success',
   }
@@ -88,16 +90,14 @@ const requestToggleTodo = state => ({
   status: 'request',
 });
 const successToggleTodo = (state, action) => {
-  const { idx } = action.payload;
+  const { id } = action.payload;
   return {
     ...state,
     todos: [
-      ...state.todos.slice(0, idx),
-      {
-        ...state.todos[idx],
-        done: !state.todos[idx].done,
-      },
-      ...state.todos.slice(idx + 1, state.todos.length),
+      ...state.todos.map(todo => ({
+        ...todo,
+        done: todo.id === id ? !todo.done : todo.done,
+      }))
     ]
   }
 };
@@ -107,10 +107,11 @@ const failureToggleTodo = (state, action) => ({
   exception: action.payload,
 });
 
+// todo item 드래그
 const requestDragTodo = state => ({
   ...state,
   status: 'request',
-})
+});
 const successDragTodo = (state, action) => {
   const { payload: { todos }, } = action;
   return {
@@ -118,8 +119,34 @@ const successDragTodo = (state, action) => {
     todos: todos,
     status: 'success',
   }
-}
+};
 const failureDragTodo = (state, action) => ({
+  ...state,
+  status: 'error',
+  exception: action.payload,
+});
+
+// todo item 수정
+const requestEditTodo = state => ({
+  ...state,
+  status: 'request',
+});
+const successEditTodo = (state, action) => {
+  const { payload: { id, todo: { title, text, date, }, }, } = action;
+  return {
+    ...state,
+    todos: [
+      ...state.todos.map(todo => ({
+        ...todo,
+        title: todo.id === id ? title : todo.title,
+        text: todo.id === id ? text : todo.text,
+        date: todo.id === id ? date : todo.date,
+      }))
+    ],
+    status: 'success',
+  }
+};
+const failureEditTodo = (state, action) => ({
   ...state,
   status: 'error',
   exception: action.payload,
@@ -142,6 +169,9 @@ export default handleActions(
     [DRAG_TODO_REQUEST]: requestDragTodo,
     [DRAG_TODO_SUCCESS]: successDragTodo,
     [DRAG_TODO_FAILURE]: failureDragTodo,
+    [EDIT_TODO_REQUEST]: requestEditTodo,
+    [EDIT_TODO_SUCCESS]: successEditTodo,
+    [EDIT_TODO_FAILURE]: failureEditTodo,
   },
   initialState
 );

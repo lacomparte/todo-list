@@ -3,10 +3,10 @@ import { ReactSortable } from 'react-sortablejs';
 import useTodo from '../../hooks/useTodo';
 import Item from './Item';
 
-const List = ({todos}) => {
+const List = ({ todos, }) => {
   const { dragTodo } = useTodo();
-  const [list, setList] = useState([]);
-  
+  const [ list, setList ] = useState([]);
+
   useEffect(() => {
     setList(todos);
   }, [setList, todos]);
@@ -20,6 +20,24 @@ const List = ({todos}) => {
       />
     ))
   }, [list]);
+
+  // if (list.length) {
+  //   setBell(
+  //     list.length && list
+  //     .filter(todo => todo.date)
+  //     .some(todo => new Date(todo.date).getTime() < new Date().getTime())
+  //   );
+  // }
+  // const test = list.length && list
+  //   .filter(todo => todo.date)
+  //   .some(todo => new Date(todo.date).getTime() < new Date().getTime());
+  
+  // console.log(list.length, test);
+  // setBell(
+  //   list
+  //   .filter(todo => todo.date)
+  //   .some(todo => new Date(todo.date).getTime() < new Date().getTime())
+  // );
 
   return (
     <div className="list">
