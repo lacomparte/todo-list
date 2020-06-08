@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/flowerjun/todo-list/precache-manifest.34f95c72316e7b762a8d2571d893781e.js"
+  "/flowerjun/todo-list/precache-manifest.8324d8fb87df745c3627163286f82858.js"
 );
 
 self.addEventListener('message', (event) => {
