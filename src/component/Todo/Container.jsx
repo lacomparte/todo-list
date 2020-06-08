@@ -15,9 +15,11 @@ const Container = () => {
     getTodos();
   }, [getTodos]);
 
-  const checkAlarm = () => 
+  const checkAlarm = () =>
+    // 완료된 일이 아니고 날짜가 지났으면 alerm 띄울 객체이다.
     todos.length ? todos
     .filter(todo => 
+      !todo.done &&
       new Date(todo.date).getTime() < new Date().getTime()
     ) : [];
 

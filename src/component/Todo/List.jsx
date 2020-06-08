@@ -18,6 +18,7 @@ const List = ({ todos, }) => {
         key={todo.id}
         {...todo}
         expired={
+          !todo.done &&
           new Date(todo.date).getTime() < new Date().getTime()
         }
       />

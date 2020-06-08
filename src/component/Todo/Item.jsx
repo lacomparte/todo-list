@@ -16,10 +16,10 @@ const Item = ({id, title, done, text, date, expired}) => {
 
   const handleEdit = () => {
     if (isEdit) {
-      // if (new Date(input.date).getTime() < new Date().getTime()) {
-      //   alert('현재시간 보다 이전 시간은 선택할 수 없습니다.');
-      //   return;
-      // }
+      if (new Date(input.date).getTime() < new Date().getTime()) {
+        alert('현재시간 보다 이전 시간은 선택할 수 없습니다.');
+        return;
+      }
       editTodo('todo', id, input)
     };
     setIsEdit(flag => !flag);
@@ -33,6 +33,11 @@ const Item = ({id, title, done, text, date, expired}) => {
       ...input,
       [name]: value,
     });
+  }
+
+  const handleDelete = (e) => {
+    e.stopPropagation();
+    if (window.confirm('해당 할 일을 삭제 하시겠습니까?')) deleteTodo('todo', id);
   }
 
   const {
@@ -112,7 +117,7 @@ const Item = ({id, title, done, text, date, expired}) => {
           }
         </div>
         <div className="item_btn">
-          <div className="delete" onClick={() => deleteTodo('todo', id)}>DELETE</div>
+          <div className="delete" onClick={handleDelete}>DELETE</div>
           <div className="edit" onClick={handleEdit}>
             {
               !isEdit ? `EDIT` : `SAVE`
