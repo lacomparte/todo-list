@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3775d92bc5701bbceb3f3c758d71e62f",
+    "revision": "37bbca9008264a3bd091c0b9c7fa2495",
     "url": "/flowerjun/todo-list/index.html"
   },
   {
-    "revision": "31c15e63cfccd1e2b88f",
+    "revision": "f0040d64f9097594887f",
     "url": "/flowerjun/todo-list/static/css/main.1057ff73.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/flowerjun/todo-list/static/js/2.9cd6f94c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "31c15e63cfccd1e2b88f",
-    "url": "/flowerjun/todo-list/static/js/main.6880cca1.chunk.js"
+    "revision": "f0040d64f9097594887f",
+    "url": "/flowerjun/todo-list/static/js/main.e6058bb7.chunk.js"
   },
   {
     "revision": "b8ad83ac93a88165bb6a",

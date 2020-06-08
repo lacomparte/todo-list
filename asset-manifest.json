@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/flowerjun/todo-list/static/css/main.1057ff73.chunk.css",
-    "main.js": "/flowerjun/todo-list/static/js/main.6880cca1.chunk.js",
-    "main.js.map": "/flowerjun/todo-list/static/js/main.6880cca1.chunk.js.map",
+    "main.js": "/flowerjun/todo-list/static/js/main.e6058bb7.chunk.js",
+    "main.js.map": "/flowerjun/todo-list/static/js/main.e6058bb7.chunk.js.map",
     "runtime-main.js": "/flowerjun/todo-list/static/js/runtime-main.c0c64b27.js",
     "runtime-main.js.map": "/flowerjun/todo-list/static/js/runtime-main.c0c64b27.js.map",
     "static/js/2.9cd6f94c.chunk.js": "/flowerjun/todo-list/static/js/2.9cd6f94c.chunk.js",
     "static/js/2.9cd6f94c.chunk.js.map": "/flowerjun/todo-list/static/js/2.9cd6f94c.chunk.js.map",
     "index.html": "/flowerjun/todo-list/index.html",
-    "precache-manifest.8324d8fb87df745c3627163286f82858.js": "/flowerjun/todo-list/precache-manifest.8324d8fb87df745c3627163286f82858.js",
+    "precache-manifest.b38a65bc6ded56773db0a3efa18faafd.js": "/flowerjun/todo-list/precache-manifest.b38a65bc6ded56773db0a3efa18faafd.js",
     "service-worker.js": "/flowerjun/todo-list/service-worker.js",
     "static/css/main.1057ff73.chunk.css.map": "/flowerjun/todo-list/static/css/main.1057ff73.chunk.css.map",
     "static/js/2.9cd6f94c.chunk.js.LICENSE.txt": "/flowerjun/todo-list/static/js/2.9cd6f94c.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.c0c64b27.js",
     "static/js/2.9cd6f94c.chunk.js",
     "static/css/main.1057ff73.chunk.css",
-    "static/js/main.6880cca1.chunk.js"
+    "static/js/main.e6058bb7.chunk.js"
   ]
 }
