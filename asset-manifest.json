@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/flowerjun/todo-list/static/css/main.1057ff73.chunk.css",
+    "main.js": "/flowerjun/todo-list/static/js/main.2add4ffc.chunk.js",
+    "main.js.map": "/flowerjun/todo-list/static/js/main.2add4ffc.chunk.js.map",
+    "runtime-main.js": "/flowerjun/todo-list/static/js/runtime-main.43ac5d66.js",
+    "runtime-main.js.map": "/flowerjun/todo-list/static/js/runtime-main.43ac5d66.js.map",
+    "static/js/2.2b8c7260.chunk.js": "/flowerjun/todo-list/static/js/2.2b8c7260.chunk.js",
+    "static/js/2.2b8c7260.chunk.js.map": "/flowerjun/todo-list/static/js/2.2b8c7260.chunk.js.map",
+    "index.html": "/flowerjun/todo-list/index.html",
+    "precache-manifest.34f95c72316e7b762a8d2571d893781e.js": "/flowerjun/todo-list/precache-manifest.34f95c72316e7b762a8d2571d893781e.js",
+    "service-worker.js": "/flowerjun/todo-list/service-worker.js",
+    "static/css/main.1057ff73.chunk.css.map": "/flowerjun/todo-list/static/css/main.1057ff73.chunk.css.map",
+    "static/js/2.2b8c7260.chunk.js.LICENSE.txt": "/flowerjun/todo-list/static/js/2.2b8c7260.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.43ac5d66.js",
+    "static/js/2.2b8c7260.chunk.js",
+    "static/css/main.1057ff73.chunk.css",
+    "static/js/main.2add4ffc.chunk.js"
+  ]
+}
