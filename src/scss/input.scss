@@ -3,18 +3,59 @@
 .input {
   border-top: 1px solid $oc-gray-2;
   border-bottom: 1px solid $oc-gray-2;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
   input {
     flex: 1;
-    font-size: 1.1rem;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
     outline: none;
     border: none;
     background: transparent;
     border-bottom: 1px solid $oc-gray-4;
+    border-radius: 0;
+    transition: font-size .3s ease;
+    font-family: system-ui;
     &:focus {
       border-bottom: 1px solid $oc-gray-6;
+      font-size: 16px;
+      transition: font-size .3s ease;
     }
+  }
+  textarea {
+    flex: 1;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    outline: none;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid $oc-gray-4;
+    border-radius: 0;
+    transition: font-size .3s ease;
+    font-family: system-ui;
+    resize: none;
+    &:focus {
+      border-bottom: 1px solid $oc-gray-6;
+      font-size: 16px;
+      transition: font-size .3s ease;
+    }
+  }
+  button {
+    appearance: none;
+    height: 33px;
+    line-height: 33px;
+    border: 0;
+    margin: 10px 0;
+    cursor: pointer;
+    font-family: system-ui;
+    background-color: #cacaca;
+  }
+  &_date {
+    // appearance: none;
+    margin: 10px 0;
   }
 }
 
@@ -30,7 +71,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-
+  font-family: system-ui;
   &:hover {
     background: $oc-green-7;
     color: white;

@@ -57,13 +57,20 @@ const Input = () => {
         value={title}
         placeholder="제목을 입력해주세요.(필수)"
       />
-      <input 
+      <textarea
         type="text"
         name="text"
         onChange={handleChange}
         value={text}
         placeholder="내용을 입력해주세요.(필수)"
       />
+      {/* <input 
+        type="text"
+        name="text"
+        onChange={handleChange}
+        value={text}
+        placeholder="내용을 입력해주세요.(필수)"
+      /> */}
       {
         !isExpiredDate ? 
         <button type="button" onClick={
@@ -74,11 +81,13 @@ const Input = () => {
           마감기한 선택
         </button> : 
         <input 
+          className="input_date"
           type="datetime-local"
           name="date"
           onChange={handleChange}
           min={getMinDate()}
           value={date}
+          placeholder="마감기한을 선택해주세요."
         />
       }
       <div className="add-button" onClick={handleInsert}>Add</div>
