@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import useTodo from '../../hooks/useTodo';
 import { dateFormat, getMinDate } from '../../utils';
 
-const Item = ({id, title, done, text, date}) => {
+const Item = ({id, title, done, text, date, expired}) => {
   const [ isEdit, setIsEdit ] = useState(false);
   const [ moreView, setMoreView ] = useState(false);
   const [ input, setInput ] = useState({
@@ -42,7 +42,7 @@ const Item = ({id, title, done, text, date}) => {
   } = input;
 
   return (
-    <div className="item" 
+    <div className={`item${expired ? ' expired' : ''}`}
       onClick={() => setMoreView(status => !status)}
     >
       {!isEdit ? 
@@ -96,11 +96,17 @@ const Item = ({id, title, done, text, date}) => {
             <>
               <br />
               content:
+              <br />
               <textarea 
                 type="text" 
                 name="text" 
                 onChange={handleChange} 
                 value={inputText}
+                style={{
+                  width: '80%',
+                  height: '45%',
+                  resize: 'none',
+                }}
               />
             </>
           }

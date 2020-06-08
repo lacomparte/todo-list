@@ -17,27 +17,12 @@ const List = ({ todos, }) => {
       <Item 
         key={todo.id}
         {...todo}
+        expired={
+          new Date(todo.date).getTime() < new Date().getTime()
+        }
       />
     ))
   }, [list]);
-
-  // if (list.length) {
-  //   setBell(
-  //     list.length && list
-  //     .filter(todo => todo.date)
-  //     .some(todo => new Date(todo.date).getTime() < new Date().getTime())
-  //   );
-  // }
-  // const test = list.length && list
-  //   .filter(todo => todo.date)
-  //   .some(todo => new Date(todo.date).getTime() < new Date().getTime());
-  
-  // console.log(list.length, test);
-  // setBell(
-  //   list
-  //   .filter(todo => todo.date)
-  //   .some(todo => new Date(todo.date).getTime() < new Date().getTime())
-  // );
 
   return (
     <div className="list">
